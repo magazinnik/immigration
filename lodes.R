@@ -37,13 +37,13 @@ type <- "JT00"
 state.proc <- function(state, years, filename) {
 	yearfiles <- list()
 	for (y in 1:length(years)) {
-    	eval(parse(text=paste0("out", years[y], " <- read.csv('", 
-    		state, filename, years[y], ".csv')")))
-    	eval(parse(text=paste0("out", years[y], "$year <- ", 
-    		years[y])))
-    	eval(parse(text=paste0("yearfiles[[", y, "]] <- out", 
-    		years[y])))
-  	}
+		eval(parse(text=paste0("out", years[y], " <- read.csv('", 
+			state, filename, years[y], ".csv')")))
+		eval(parse(text=paste0("out", years[y], "$year <- ", 
+			years[y])))
+		eval(parse(text=paste0("yearfiles[[", y, "]] <- out", 
+			years[y])))
+	}
 	out <- rbindlist(yearfiles)
   	out$state <- state
   	return(out)
