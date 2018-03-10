@@ -35,18 +35,18 @@ type <- "JT00"
 
 ## function to read in all years for one state and combine
 state.proc <- function(state, years, filename) {
-  yearfiles <- list()
+	yearfiles <- list()
 	for (y in 1:length(years)) {
-    eval(parse(text=paste0("out", years[y], " <- read.csv('", 
-    	state, filename, years[y], ".csv')")))
-    eval(parse(text=paste0("out", years[y], "$year <- ", 
-    	years[y])))
-    eval(parse(text=paste0("yearfiles[[", y, "]] <- out", 
-    	years[y])))
-  }
+    	eval(parse(text=paste0("out", years[y], " <- read.csv('", 
+    		state, filename, years[y], ".csv')")))
+    	eval(parse(text=paste0("out", years[y], "$year <- ", 
+    		years[y])))
+    	eval(parse(text=paste0("yearfiles[[", y, "]] <- out", 
+    		years[y])))
+  	}
 	out <- rbindlist(yearfiles)
-  out$state <- state
-  return(out)
+  	out$state <- state
+  	return(out)
 }
 
 ## function to read in all states and combine 
