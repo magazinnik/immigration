@@ -74,20 +74,20 @@ full$county <- substr(full$id, 1, 5)
 agg <- full %>% 
 	group_by(county, year) %>% 
 	summarise(njobs = sum(C000),
-			  njobs_under1250 = sum(CE01),
-			  njobs_1251to3333 = sum(CE02),
-			  njobs_over3333 = sum(CE03),
-			  njobs_white = sum(CR01),
-			  njobs_black = sum(CR02),
-			  njobs_hisp = sum(CT02),
-			  njobs_lesshs = sum(CD01),
-			  njobs_hs = sum(CD02),
-			  njobs_somecol = sum(CD03),
-			  njobs_male = sum(CS01), 
-			  njobs_ag = sum(CNS01), # agriculture, forestry, fishing and hunting
-			  njobs_const = sum(CNS04), # construction
-			  njobs_acc = sum(CNS18), # accommodation and food services
-			  njobs_prof = sum(CNS12), # professional, scientific, and technical services
-			  njobs_admin = sum(CNS14), # admin and support and waste management and remediation services
-			  njobs_acc = sum(CNS10) # finance and insurance 
-			 )
+		njobs_under1250 = sum(CE01),
+		njobs_1251to3333 = sum(CE02),
+		njobs_over3333 = sum(CE03),
+		njobs_white = sum(CR01),
+		njobs_black = sum(CR02),
+		njobs_hisp = sum(CT02),
+		njobs_lesshs = sum(CD01),
+		njobs_hs = sum(CD02),
+		njobs_somecol = sum(CD03),
+		njobs_male = sum(CS01), 
+		njobs_ag = sum(CNS01), # agriculture, forestry, fishing and hunting
+		njobs_const = sum(CNS04), # construction
+		njobs_acc = sum(CNS18), # accommodation and food services
+		njobs_prof = sum(CNS12), # professional, scientific, and technical services
+		njobs_admin = sum(CNS14), # admin and support and waste management and remediation services
+		njobs_acc = sum(CNS10) # finance and insurance 
+	)
