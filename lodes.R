@@ -38,7 +38,8 @@ state.proc <- function(state, years, filename) {
 	yearfiles <- list()
 	for (y in 1:length(years)) {
 		eval(parse(text=paste0("out", years[y], " <- read.csv('", 
-			state, filename, years[y], ".csv')")))
+			state, filename, years[y], ".csv', 
+			colClasses=c('character', rep('numeric', 41)))")))
 		eval(parse(text=paste0("out", years[y], "$year <- ", 
 			years[y])))
 		eval(parse(text=paste0("yearfiles[[", y, "]] <- out", 
